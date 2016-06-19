@@ -1,0 +1,2 @@
+# SearchAThing.Snippets
+VS Snippets
