@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>dpp</Title>
+      <Shortcut>dpp</Shortcut>
+      <Description>Dependency property</Description>
+      <Author>Lorenzo Delana &lt;oss.devel@searchathing.com&gt;</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="false">
+          <ID>classname</ID>
+          <ToolTip>Class name</ToolTip>
+          <Function>ClassName()</Function>
+          <Default>ClassNamePlaceholder</Default>
+        </Literal>
+        <Literal>
+          <ID>type</ID>
+          <ToolTip>Property type</ToolTip>
+          <Default>int</Default>
+        </Literal>
+        <Literal>
+          <ID>property</ID>
+          <ToolTip>Property name</ToolTip>
+          <Default>MyProperty</Default>
+        </Literal>
+        <Literal>
+          <ID>defaultValue</ID>
+          <ToolTip>Default value</ToolTip>
+          <Default>null</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[#region $property$ [dpp]
+        public static readonly DependencyProperty $property$Property =
+        DependencyProperty.Register("$property$", typeof($type$), typeof($classname$), new FrameworkPropertyMetadata($defaultValue$));
+        
+        public $type$ $property$
+        {
+          get
+          {
+            return ($type$)GetValue($property$Property);
+          }
+          set
+          {
+            SetValue($property$Property, value);
+          }
+        }
+        #endregion
+			$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
