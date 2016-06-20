@@ -140,3 +140,29 @@ public int MyProperty
 }
 #endregion
 ```
+
+### propi
+
+*Property with field and init construct*
+
+Defaults:
+- type (int)
+- property (MyProperty)
+
+```csharp
+#region MyProperty [propfi]
+int _MyProperty;
+public int MyProperty
+{
+    get
+    {
+        if (_MyProperty == null) _MyProperty = new int();
+        return _MyProperty;
+    }
+    set
+    {
+        _MyProperty = value;
+    }
+}
+#endregion
+```
