@@ -11,68 +11,115 @@ Type the snippet name and tab twice.
 
 ## Snippets
 
-### dpp
+### pg
 
-*Dependency property*
+*Property with only get*
 
 Defaults:
 - type (int)
 - property (MyProperty)
-- defaultValue (null)
+- default value (0)
 
 ```csharp
-#region MyProperty [dpp]
-public static readonly DependencyProperty MyPropertyProperty =
-DependencyProperty.Register("MyProperty", typeof(int), typeof(Global), new FrameworkPropertyMetadata(null));
-
+#region MyProperty [pg]
 public int MyProperty
 {
     get
     {
-        return (int)GetValue(MyPropertyProperty);
-    }
-    set
-    {
-        SetValue(MyPropertyProperty, value);
+        return 0;
     }
 }
 #endregion
 ```
 
-### dppc
+### pf
 
-*Dependency property with OnPropertyChanged handler*
+*Property with field*
 
 Defaults:
 - type (int)
 - property (MyProperty)
-- defaultValue (null)
 
 ```csharp
-#region MyProperty [dppc]
-public static readonly DependencyProperty MyPropertyProperty =
-    DependencyProperty.Register("MyProperty", typeof(int), typeof(Global), new FrameworkPropertyMetadata(null, OnMyPropertyChanged));
-
+#region MyProperty [pf]
+int _MyProperty;
 public int MyProperty
 {
     get
     {
-        return (int)GetValue(MyPropertyProperty);
+        return _MyProperty;
     }
     set
     {
-        SetValue(MyPropertyProperty, value);
+        _MyProperty = value;
     }
-}
-
-static void OnMyPropertyChanged(DependencyObject source, DependencyPropertyChangedEventArgs e)
-{
-    var obj = (Global)source;
 }
 #endregion
 ```
 
-### propc
+### pfig
+
+*Property only get w/field*
+
+Defaults:
+- type (object)
+- property (MyProperty)
+
+```csharp
+#region MyProperty [pfig]
+object _MyProperty;
+public object MyProperty
+{
+    get
+    {
+        if (_MyProperty == null) _MyProperty = new object();
+        return _MyProperty;
+    }
+}
+#endregion
+```
+
+### pfi
+
+*Property with field and init construct*
+
+Defaults:
+- type (int)
+- property (MyProperty)
+
+```csharp
+#region MyProperty [pfi]
+int _MyProperty;
+public int MyProperty
+{
+    get
+    {
+        if (_MyProperty == null) _MyProperty = new int();
+        return _MyProperty;
+    }
+    set
+    {
+        _MyProperty = value;
+    }
+}
+#endregion
+```
+
+### pce
+
+*Property changed event handler*
+
+```csharp
+#region INotifyPropertyChanged [pce]       
+public event PropertyChangedEventHandler PropertyChanged;
+protected void SendPropertyChanged(string propertyName)
+{
+    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+}
+#endregion
+```
+
+### pc
 
 *Property with notify property changed*
 
@@ -82,7 +129,7 @@ Defaults:
 - defaultValue (null)
 
 ```csharp
-#region MyProperty [propc]
+#region MyProperty [pc]
 int _MyProperty;
 public int MyProperty
 {
@@ -102,67 +149,63 @@ public int MyProperty
 #endregion
 ```
 
-### propce
+### dp
 
-*Property changed event handler*
-
-```csharp
-#region INotifyPropertyChanged [propce]       
-public event PropertyChangedEventHandler PropertyChanged;
-protected void SendPropertyChanged(string propertyName)
-{
-    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-}
-#endregion
-```
-
-### propf
-
-*Property with field*
+*Dependency property*
 
 Defaults:
 - type (int)
 - property (MyProperty)
+- defaultValue (null)
 
 ```csharp
-#region MyProperty [propf]
-int _MyProperty;
+#region MyProperty [dp]
+public static readonly DependencyProperty MyPropertyProperty =
+DependencyProperty.Register("MyProperty", typeof(int), typeof(Global), new FrameworkPropertyMetadata(null));
+
 public int MyProperty
 {
     get
     {
-        return _MyProperty;
+        return (int)GetValue(MyPropertyProperty);
     }
     set
     {
-        _MyProperty = value;
+        SetValue(MyPropertyProperty, value);
     }
 }
 #endregion
 ```
 
-### propi
+### dpc
 
-*Property with field and init construct*
+*Dependency property with OnPropertyChanged handler*
 
 Defaults:
 - type (int)
 - property (MyProperty)
+- defaultValue (null)
 
 ```csharp
-#region MyProperty [propfi]
-int _MyProperty;
+#region MyProperty [dpc]
+public static readonly DependencyProperty MyPropertyProperty =
+    DependencyProperty.Register("MyProperty", typeof(int), typeof(Global), new FrameworkPropertyMetadata(null, OnMyPropertyChanged));
+
 public int MyProperty
 {
     get
     {
-        if (_MyProperty == null) _MyProperty = new int();
-        return _MyProperty;
+        return (int)GetValue(MyPropertyProperty);
     }
     set
     {
-        _MyProperty = value;
+        SetValue(MyPropertyProperty, value);
     }
+}
+
+static void OnMyPropertyChanged(DependencyObject source, DependencyPropertyChangedEventArgs e)
+{
+    var obj = (Global)source;
 }
 #endregion
 ```

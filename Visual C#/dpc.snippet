@@ -2,9 +2,9 @@
 <CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
   <CodeSnippet Format="1.0.0">
     <Header>
-      <Title>dpp</Title>
-      <Shortcut>dpp</Shortcut>
-      <Description>Dependency property</Description>
+      <Title>dpc</Title>
+      <Shortcut>dpc</Shortcut>
+      <Description>Dependency property with OnPropertyChanged handler</Description>
       <Author>Lorenzo Delana &lt;oss.devel@searchathing.com&gt;</Author>
       <SnippetTypes>
         <SnippetType>Expansion</SnippetType>
@@ -35,10 +35,10 @@
         </Literal>
       </Declarations>
       <Code Language="csharp">
-        <![CDATA[#region $property$ [dpp]
+        <![CDATA[#region $property$ [dpc]
         public static readonly DependencyProperty $property$Property =
-        DependencyProperty.Register("$property$", typeof($type$), typeof($classname$), new FrameworkPropertyMetadata($defaultValue$));
-        
+          DependencyProperty.Register("$property$", typeof($type$), typeof($classname$), new FrameworkPropertyMetadata($defaultValue$, On$property$Changed));
+			
         public $type$ $property$
         {
           get
@@ -49,6 +49,11 @@
           {
             SetValue($property$Property, value);
           }
+        }
+        
+        static void On$property$Changed(DependencyObject source, DependencyPropertyChangedEventArgs e)
+        {
+          var obj = ($classname$)source;
         }
         #endregion
 			$end$]]>
