@@ -209,3 +209,16 @@ static void OnMyPropertyChanged(DependencyObject source, DependencyPropertyChang
 }
 #endregion
 ```
+
+### obc
+
+*Observable Collection*
+
+Defaults:
+- type (int)
+
+```csharp
+using System.Collections.ObjectModel;
+//...
+ObservableCollection<int> obc;
+```
