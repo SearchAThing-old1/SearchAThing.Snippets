@@ -32,6 +32,48 @@ public int MyProperty
 #endregion
 ```
 
+### pgs
+
+*Property get/set*
+
+Defaults:
+- type (int)
+- property (MyProperty)
+
+```csharp
+#region MyProperty [pgs]
+public int MyProperty { get; set; }
+#endregion
+```
+
+### pgps
+
+*Property get/private set*
+
+Defaults:
+- type (int)
+- property (MyProperty)
+
+```csharp
+#region MyProperty [pgps]
+public int MyProperty { get; private set; }
+#endregion
+```
+
+### pgis
+
+*Property get/internal set*
+
+Defaults:
+- type (int)
+- property (MyProperty)
+
+```csharp
+#region MyProperty [pgis]
+public int MyProperty { get; internal set; }
+#endregion
+```
+
 ### pf
 
 *Property with field*
