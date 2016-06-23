@@ -1,3 +1,26 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [SearchAThing.Snippets](#searchathingsnippets)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Snippets](#snippets)
+    - [pg](#pg)
+    - [pgs](#pgs)
+    - [pgps](#pgps)
+    - [pgis](#pgis)
+    - [pf](#pf)
+    - [pfig](#pfig)
+    - [pfi](#pfi)
+    - [pce](#pce)
+    - [pc](#pc)
+    - [dp](#dp)
+    - [dpc](#dpc)
+    - [obc](#obc)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # SearchAThing.Snippets
 VS Snippets
 
@@ -99,7 +122,7 @@ public int MyProperty
 #endregion
 ```
 
-### pfig
+### pfg
 
 *Property only get w/field*
 
@@ -108,7 +131,7 @@ Defaults:
 - property (MyProperty)
 
 ```csharp
-#region MyProperty [pfig]
+#region MyProperty [pfg]
 object _MyProperty;
 public object MyProperty
 {
